@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.your100daysofleisure.R
+import com.example.your100daysofleisure.data.Leisure
 import com.example.your100daysofleisure.databinding.ActivityMainBinding
 import com.example.your100daysofleisure.utils.SessionManager
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     //lateinit var adapter: LeisureAdapter
 
-    //lateinit var leisureList: List<Leisure>
+    lateinit var your100DaysOfLeisureList: List<Leisure>
 
     //lateinit var recyclerView: RecyclerView
 
@@ -28,22 +29,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = ActivityMainBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
 
         val session = SessionManager(this)
 
         if (session.getUserName() == null) {
-            identifierView = findViewById(R.id.identifierView)
-            identifierView.visibility = View.VISIBLE
+            binding.identifierView.visibility = View.VISIBLE
+            //identifierView = findViewById(R.id.identifierView)
+            //identifierView.visibility = View.VISIBLE
 
-            userNameText = findViewById(R.id.userNameText)
-            userZipCodeText = findViewById(R.id.userZipCodeText)
+            binding.userNameText
+            binding.userZipCodeText
+
             session.setUserName(userNameText.toString())
             session.setUserZipCode(userZipCodeText.toString())
-            addButton = findViewById(R.id.addButton)
+            binding.addButton
 
             addButton.setOnClickListener{
                 session.setUserName(userNameText.text.toString())
@@ -51,5 +54,6 @@ class MainActivity : AppCompatActivity() {
                 identifierView.visibility = View.GONE
             }
         }
+
     }
 }
