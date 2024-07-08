@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:textAlignment="center"
         android:paddingStart="8dp"
-
+        android:visibility="gone"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:paddingTop="50sp"
+            android:paddingTop="30sp"
             android:text="@string/instructions"
             android:textStyle="italic"
             android:textSize="24sp"/>
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:paddingTop="50sp"
+            android:paddingTop="30sp"
             android:text="@string/user"
             android:textStyle="bold"
             android:textSize="24sp"/>
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:paddingTop="50sp"
+            android:paddingTop="30sp"
             android:text="@string/zipCode"
             android:textStyle="bold"
             android:textSize="24sp"/>
@@ -71,7 +71,7 @@
             android:textSize="26sp"
             android:text="" />
         <Button
-            android:id="@+id/clickButton"
+            android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"

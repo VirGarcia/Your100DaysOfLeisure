@@ -3,6 +3,7 @@ package com.example.your100daysofleisure.utils
 import android.content.Context
 import android.content.SharedPreferences
 
+
 class SessionManager (context: Context) {
     companion object {
         const val USER_ZIPCODE = "USER_ZIPCODE"
