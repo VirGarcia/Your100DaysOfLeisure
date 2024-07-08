@@ -33,9 +33,22 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    //SQLite
+    implementation("androidx.sqlite:sqlite-ktx:2.4.0")
+
+    //añadimos dependencias libreria retrofit y su correspondiente para convertir json
+    val retrofitVersion = "2.11.0"
+
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")

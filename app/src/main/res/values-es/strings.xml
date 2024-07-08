@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tus100DíasDeOcio</string>
+
+    <string name="welcomeApp">¡Bienvenid@ a la App Tus 100 Días de Ocio!</string>
+    <string name="instructions">Introduce tus datos</string>
+
+    <string name="user">Usuario:</string>
+    <string name="zipCode">Cód. Postal:</string>
+    <string name="save">Guardar</string>
+
+    <string name="welcome">¡Hola!</string>
+
+
+</resources>

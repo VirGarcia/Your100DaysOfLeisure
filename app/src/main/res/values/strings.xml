@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Your100DaysOfLeisure</string>
+
+    <string name="welcomeApp">Welcome to the Your 100 Days Of Leisure App!</string>
+    <string name="instructions">Enter your details</string>
+
+    <string name="user">User:</string>
+    <string name="zipCode">Zip Code:</string>
+
+    <string name="save">Save</string>
+
+    <string name="welcome">Hello!</string>
+
+
+
+
 </resources>
