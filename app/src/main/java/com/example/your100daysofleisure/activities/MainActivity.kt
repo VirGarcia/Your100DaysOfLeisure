@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         //setContentView(R.layout.activity_main)
 
-        val session = SessionManager(this)
+        session = SessionManager(this)
 
         if (session.getUserName() == null) {
             binding.identifierView.visibility = View.VISIBLE
