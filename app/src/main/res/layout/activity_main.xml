@@ -78,7 +78,28 @@
             android:text="@string/save"
             android:textSize="35sp"
             android:layout_gravity="center_horizontal"/>
-
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/helloUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:paddingTop="30sp"
+            android:text="@string/welcome"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:paddingTop="30sp"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
     </LinearLayout>
 
 

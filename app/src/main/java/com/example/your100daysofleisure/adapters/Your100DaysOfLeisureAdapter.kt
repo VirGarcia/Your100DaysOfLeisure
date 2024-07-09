@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.your100daysofleisure.data.Leisure
 import com.example.your100daysofleisure.databinding.ItemLeisureBinding
 
-class LeisureAdapter ( private var dataSet: List<Leisure> = emptyList(),
+class Your100DaysOfLeisureAdapter ( private var dataSet: List<Leisure> = emptyList(),
                          private val onItemClickListener: (Int) -> Unit
 ) : RecyclerView.Adapter<LeisureViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeisureViewHolder {
@@ -27,7 +27,9 @@ class LeisureAdapter ( private var dataSet: List<Leisure> = emptyList(),
     }
 }
 class LeisureViewHolder(private val binding: ItemLeisureBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun render(superhero: Leisure) {
-        binding.nameTextView.text = leisure.name
+    fun render(leisure: Leisure) {
+        //binding.nameTextView.text = leisure.address?.area?.postalCode
+        binding.titleTextView.text = leisure.title
+        binding.zipCodeTextView.text = leisure.address?.area?.postalCode
     }
 }

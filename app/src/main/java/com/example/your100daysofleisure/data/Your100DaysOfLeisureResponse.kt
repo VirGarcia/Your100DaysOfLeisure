@@ -7,42 +7,38 @@ import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
 
 class Your100DaysOfLeisureResponse (
-
-    @SerializedName("response") val response: String,
-    @SerializedName("results-for") val resultsFor: String?,
-    @SerializedName("results") val results: List<Leisure>
+    @SerializedName("@graph") val results: List<Leisure>
 ){
 }
 
 data class Leisure (
-    @SerializedName("id") val id: Int,
-    @SerializedName("name") val name: String,
-    @SerializedName("image") val image: Image,
-    @SerializedName("biography") val biography: Biography,
-    @SerializedName("powerstats") val powerstats: Powerstats
-)
+    @SerializedName("@id") val id: String,
+    @SerializedName("title") val title: String,
+    @SerializedName("address") val address: Address?
 
-data class Powerstats(
-    @JsonAdapter(IntegerAdapter::class) @SerializedName("intelligence") val intelligence: Int,
-    @JsonAdapter(IntegerAdapter::class)@SerializedName("strength") val strength: Int,
-    @JsonAdapter(IntegerAdapter::class)@SerializedName("speed") val speed: Int,
-    @JsonAdapter(IntegerAdapter::class)@SerializedName("durability") val durability: Int,
-    @JsonAdapter(IntegerAdapter::class)@SerializedName("power") val power: Int,
-    @JsonAdapter(IntegerAdapter::class)@SerializedName("combat") val combat: Int
 
 )
 
-data class Image (
-    @SerializedName("url") val url: String
+data class Address (
+    @SerializedName("area") val area: Area
 )
 
-data class Biography (
-    @SerializedName("full-name") val fullName: String,
-    @SerializedName("place-of-birth") val placeOfBirth: String,
-    @SerializedName("publisher") val publisher: String,
-    @SerializedName("alignment") val alignment: String
+data class Area (
+    @SerializedName("locality") val locality: String,
+    @SerializedName("postal-code") val postalCode: String,
+    @SerializedName("street-address") val street: String
+)
+
+data class Details(
+    @SerializedName("title") val name: String,
+    @JsonAdapter(IntegerAdapter::class) @SerializedName("price") val intelligence: Int,
+    @JsonAdapter(IntegerAdapter::class)@SerializedName("event-location") val strength: String
 
 )
+
+
+
+
 
 
 
