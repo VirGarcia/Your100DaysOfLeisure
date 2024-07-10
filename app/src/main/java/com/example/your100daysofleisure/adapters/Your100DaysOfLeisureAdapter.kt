@@ -30,6 +30,6 @@ class LeisureViewHolder(private val binding: ItemLeisureBinding) : RecyclerView.
     fun render(leisure: Leisure) {
         //binding.nameTextView.text = leisure.address?.area?.postalCode
         binding.titleTextView.text = leisure.title
-        binding.zipCodeTextView.text = leisure.address?.area?.postalCode
+        binding.zipCodeTextView.text = leisure.address?.postalCode()
     }
 }

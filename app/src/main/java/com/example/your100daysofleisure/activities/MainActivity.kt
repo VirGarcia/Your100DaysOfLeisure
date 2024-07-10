@@ -4,13 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.your100daysofleisure.R
 import com.example.your100daysofleisure.adapters.Your100DaysOfLeisureAdapter
 import com.example.your100daysofleisure.data.Leisure
 import com.example.your100daysofleisure.data.Your100DaysOfLeisureApiService
@@ -44,15 +38,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //setContentView(R.layout.activity_main)
-
         session = SessionManager(this)
 
         if (session.getUserName() == null) {
             binding.identifierView.visibility = View.VISIBLE
-            //identifierView = findViewById(R.id.identifierView)
-            //identifierView.visibility = View.VISIBLE
-
             binding.addButton.setOnClickListener{
                 session.setUserName(binding.userNameText.text.toString())
                 session.setUserZipCode(binding.userZipCodeText.text.toString())
@@ -63,8 +52,6 @@ class MainActivity : AppCompatActivity() {
             showUserData()
         }
 
-
-
         your100DaysOfLeisureList = emptyList()
         adapter = Your100DaysOfLeisureAdapter(your100DaysOfLeisureList) { position ->
             navigateToDetail(your100DaysOfLeisureList[position])
@@ -72,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-     searchByDistrict("CENTRO")
+     searchAllLeisure("CENTRO")
 
     }
 
@@ -82,12 +69,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToDetail(leisure: Leisure) {
+
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("LEISURE_ID", leisure.id)
+        intent.putExtra("LEISURE_TITLE",  leisure.title.replace('.','-').replace(' ','-'))
+
         startActivity(intent)
     }
 
-    private fun  searchByDistrict(query: String){
+    private fun  searchAllLeisure(query: String){
         // Llamada en segundo plano
         CoroutineScope(Dispatchers.IO).launch {
             try {

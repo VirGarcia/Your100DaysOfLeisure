@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Your100DaysOfLeisure"
+        android:theme="@style/Theme.Your100DaysOfLeisureApp"
         tools:targetApi="31">
         <activity
             android:name=".activities.DetailActivity"
