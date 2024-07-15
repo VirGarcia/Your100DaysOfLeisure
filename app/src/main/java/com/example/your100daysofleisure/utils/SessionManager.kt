@@ -2,6 +2,7 @@ package com.example.your100daysofleisure.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.your100daysofleisure.adapters.LeisureViewHolder
 
 
 class SessionManager (context: Context) {
@@ -15,17 +16,6 @@ class SessionManager (context: Context) {
     init {
         sharedPref = context.getSharedPreferences("leisure_session", Context.MODE_PRIVATE)
     }
-    /*fun isFavorite(horoscopeId: String) : Boolean {
-        return getFavoriteHoroscope()?.equals(horoscopeId) ?: false
-    }*/
-    /*fun setFavoriteHoroscope(id: String) {
-        val editor = sharedPref.edit()
-        editor.putString(FAVORITE_HOROSCOPE, id)
-        editor.apply()
-    }
-    fun getFavoriteHoroscope() : String? {
-        return sharedPref.getString(FAVORITE_HOROSCOPE, null)
-    }*/
 
     fun setUserName(name: String) {
         val userName = sharedPref.edit()

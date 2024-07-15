@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Tus100DíasDeOcio</string>
 
+    <string name="fill_details_message">Rellena tus datos para una mejor experiencia</string>
     <string name="welcomeApp">¡Bienvenid@ a la App Tus 100 Días de Ocio!</string>
     <string name="instructions">Introduce tus datos</string>
 
@@ -12,5 +13,10 @@
     <string name="welcome">¡Hola!</string>
     <string name="event">Evento</string>
 
+    <string name="free">Gratis</string>
+    <string name="visitWebSite">Visitar Sitio Web</string>
+
+    <string name="menu_favorite">Menú Favorito</string>
+    <string name="menu_search">Menú Búsqueda</string>
 
 </resources>

@@ -15,8 +15,11 @@
         android:theme="@style/Theme.Your100DaysOfLeisureApp"
         tools:targetApi="31">
         <activity
+            android:name=".activities.MyEvents"
+            android:exported="false" />
+        <activity
             android:name=".activities.DetailActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

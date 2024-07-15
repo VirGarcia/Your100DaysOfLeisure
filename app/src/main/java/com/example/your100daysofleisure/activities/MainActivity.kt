@@ -1,10 +1,16 @@
 package com.example.your100daysofleisure.activities
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.your100daysofleisure.R
 import com.example.your100daysofleisure.adapters.Your100DaysOfLeisureAdapter
 import com.example.your100daysofleisure.data.Leisure
 import com.example.your100daysofleisure.data.Your100DaysOfLeisureApiService
@@ -22,15 +28,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var adapter: Your100DaysOfLeisureAdapter
 
     lateinit var your100DaysOfLeisureList: List<Leisure>
+    lateinit var filteredLeisureList: List<Leisure>
 
-    //lateinit var recyclerView: RecyclerView
-
-    //lateinit var identifierView: LinearLayout
-    //lateinit var userNameText: EditText
-    //lateinit var userZipCodeText: EditText
-    //lateinit var addButton: Button
     lateinit var session: SessionManager
-    //lateinit var name: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +42,21 @@ class MainActivity : AppCompatActivity() {
 
         if (session.getUserName() == null) {
             binding.identifierView.visibility = View.VISIBLE
+            class FillDetailsDialogFragment : DialogFragment() {
+                override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+                    return activity?.let {
+                        val builder = AlertDialog.Builder(it)
+                        builder.setMessage(R.string.fill_details_message)
+                            .setPositiveButton("Ok") { dialog, id ->
+                                // ¡EMPIEZA EL JUEGO!
+                            }
+
+                        builder.create()
+                    } ?: throw IllegalStateException("Activity cannot be null")
+                }
+            }
+            FillDetailsDialogFragment().show(supportFragmentManager, "CHECK_MY_EVENTS_DIALOG")
+
             binding.addButton.setOnClickListener{
                 session.setUserName(binding.userNameText.text.toString())
                 session.setUserZipCode(binding.userZipCodeText.text.toString())
@@ -50,16 +65,19 @@ class MainActivity : AppCompatActivity() {
             }
         } else {
             showUserData()
+
+
+
         }
 
-        your100DaysOfLeisureList = emptyList()
-        adapter = Your100DaysOfLeisureAdapter(your100DaysOfLeisureList) { position ->
-            navigateToDetail(your100DaysOfLeisureList[position])
+        filteredLeisureList = emptyList()
+        adapter = Your100DaysOfLeisureAdapter(filteredLeisureList) { position ->
+            navigateToDetail(filteredLeisureList[position])
         }
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-     searchAllLeisure("CENTRO")
+        searchAllLeisure()
 
     }
 
@@ -67,6 +85,32 @@ class MainActivity : AppCompatActivity() {
         binding.helloUser.visibility = View.VISIBLE
         binding.name.text = session.getUserName()
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_activity_main, menu)
+
+        val searchViewItem = menu.findItem(R.id.menu_search)
+        val searchView = searchViewItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                if (query != null) {
+                    filteredLeisureList = your100DaysOfLeisureList.filter {
+                        it.title.contains(query, true) ||
+                        it.address?.postalCode()?.contains(query, true) ?: false
+                    }
+                    adapter.updateData(filteredLeisureList)
+                }
+                return true
+            }
+        })
+
+        return true
+    }
+
 
     private fun navigateToDetail(leisure: Leisure) {
 
@@ -77,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun  searchAllLeisure(query: String){
+    private fun  searchAllLeisure(){
         // Llamada en segundo plano
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -87,7 +131,8 @@ class MainActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     your100DaysOfLeisureList = result.results
-                    adapter.updateData(your100DaysOfLeisureList)
+                    filteredLeisureList = your100DaysOfLeisureList
+                    adapter.updateData(filteredLeisureList)
                 }
                 //Log.i("HTTP", "${result.results}")
             } catch (e: Exception) {

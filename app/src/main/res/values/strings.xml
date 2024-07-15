@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Your100DaysOfLeisure</string>
 
+    <string name="fill_details_message"> Fill in your details for a better experience</string>
     <string name="welcomeApp">Welcome to the Your 100 Days Of Leisure App!</string>
     <string name="instructions">Enter your details</string>
 
@@ -12,7 +13,11 @@
     <string name="welcome">Hello!</string>
     <string name="event">Event</string>
 
+    <string name="free">Free</string>
+    <string name="visitWebSite">Visit Web Site</string>
 
+    <string name="menu_favorite">Menu Favorite</string>
+    <string name="menu_search">Menu Search</string>
 
 
 </resources>

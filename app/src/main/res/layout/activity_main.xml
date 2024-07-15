@@ -25,14 +25,7 @@
             android:paddingEnd="8sp"
             android:textStyle="bold"
             android:textSize="35sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="30sp"
-            android:text="@string/instructions"
-            android:textStyle="italic"
-            android:textSize="24sp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
