@@ -18,5 +18,6 @@
 
     <string name="menu_favorite">Menú Favorito</string>
     <string name="menu_search">Menú Búsqueda</string>
+    <string name="menu_share">Menú Compartir</string>
 
 </resources>

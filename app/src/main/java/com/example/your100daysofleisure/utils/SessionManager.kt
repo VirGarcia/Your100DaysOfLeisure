@@ -10,6 +10,7 @@ class SessionManager (context: Context) {
         const val USER_ZIPCODE = "USER_ZIPCODE"
         const val INFO_LEISURE = "INFO_LEISURE"
         const val USER_NAME = "USER_NAME"
+        const val FAVORITE_LEISURE = "FAVORITE_LEISURE"
     }
     private val sharedPref: SharedPreferences
 
@@ -44,8 +45,19 @@ class SessionManager (context: Context) {
         editor.apply()
     }
 
-
     fun getInfoLeisure() : String? {
         return sharedPref.getString(INFO_LEISURE, null)
+    }
+
+    fun isFavorite(leisureId: String) : Boolean {
+        return getFavoriteLeisure()?.equals(leisureId) ?: false
+    }
+    fun setFavoriteLeisure(id: String) {
+        val editor = sharedPref.edit()
+        editor.putString(FAVORITE_LEISURE, id)
+        editor.apply()
+    }
+    fun getFavoriteLeisure() : String? {
+        return sharedPref.getString(FAVORITE_LEISURE, null)
     }
 }

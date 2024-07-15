@@ -1,6 +1,7 @@
 package com.example.your100daysofleisure.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.your100daysofleisure.R
@@ -43,6 +44,14 @@ class LeisureViewHolder(private val binding: ItemLeisureBinding) : RecyclerView.
         } else {
             val backgroundColor = ContextCompat.getColor(binding.root.context, R.color.transparent_grey)
             binding.details.setBackgroundColor(backgroundColor)
+        }
+
+        val context = itemView.context
+        var isFavorite = SessionManager(context).isFavorite(leisure.id)
+        if (isFavorite) {
+            binding.favoriteImageView.visibility = View.VISIBLE
+        } else {
+            binding.favoriteImageView.visibility = View.GONE
         }
     }
 }

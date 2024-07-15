@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        your100DaysOfLeisureList = emptyList()
         filteredLeisureList = emptyList()
         adapter = Your100DaysOfLeisureAdapter(filteredLeisureList) { position ->
             navigateToDetail(filteredLeisureList[position])
@@ -81,10 +82,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        adapter.updateData(your100DaysOfLeisureList)
+    }
+
     fun showUserData() {
         binding.helloUser.visibility = View.VISIBLE
         binding.name.text = session.getUserName()
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_activity_main, menu)
 

@@ -15,7 +15,8 @@ android:layout_height="match_parent">
         android:id="@+id/details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/transparent_grey">
 
         <TextView
             android:id="@+id/titleTextView"
@@ -24,8 +25,7 @@ android:layout_height="match_parent">
             android:text="title"
             android:textSize="24sp"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:background="@color/transparent_grey"/>
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/zipCodeTextView"
@@ -34,8 +34,17 @@ android:layout_height="match_parent">
             android:text="code"
             android:textSize="24sp"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:background="@color/transparent_grey"/>
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:id="@+id/favoriteImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_favorite_selected"
+            app:tint="@color/favorite"
+            android:textAlignment="center"
+            android:scaleType="centerCrop" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
