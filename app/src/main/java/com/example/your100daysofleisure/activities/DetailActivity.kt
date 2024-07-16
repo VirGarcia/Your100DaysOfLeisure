@@ -118,7 +118,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun getLeisureData(url: String) {
         if (title!=null) {
-            binding.progressBar.visibility = View.VISIBLE
+            binding.progressBarDetail.visibility = View.VISIBLE
             CoroutineScope(Dispatchers.IO).launch {
                 try {
 
@@ -130,7 +130,7 @@ class DetailActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         loadData()
-                        binding.progressBar.visibility = View.GONE
+                        binding.progressBarDetail.visibility = View.GONE
                     }
                     //Log.i("HTTP", "${result.results}")
                 } catch (e: Exception) {

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.DialogFragment
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var filteredLeisureList: List<Leisure>
 
     lateinit var session: SessionManager
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -131,6 +134,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun  searchAllLeisure(){
         // Llamada en segundo plano
+        binding.progressBarMain.visibility = View.VISIBLE
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val apiService = getRetrofit().create(Your100DaysOfLeisureApiService::class.java)
@@ -141,6 +145,7 @@ class MainActivity : AppCompatActivity() {
                     your100DaysOfLeisureList = result.results
                     filteredLeisureList = your100DaysOfLeisureList
                     adapter.updateData(filteredLeisureList)
+                    binding.progressBarMain.visibility = View.GONE
                 }
                 //Log.i("HTTP", "${result.results}")
             } catch (e: Exception) {
