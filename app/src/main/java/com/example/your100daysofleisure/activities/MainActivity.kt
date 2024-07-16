@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity() {
             FillDetailsDialogFragment().show(supportFragmentManager, "CHECK_MY_EVENTS_DIALOG")
 
             binding.addButton.setOnClickListener{
-                session.setUserName(binding.userNameText.text.toString())
-                session.setUserZipCode(binding.userZipCodeText.text.toString())
+                session.setUserName(binding.userNameTextField.editText?.text.toString())
+                session.setUserZipCode(binding.userZipCodeTextField.editText?.text.toString())
                 binding.identifierView.visibility = View.GONE
                 showUserData()
             }

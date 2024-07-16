@@ -15,6 +15,7 @@
         android:textAlignment="center"
         android:paddingStart="8dp"
         android:visibility="gone"
+
         >
         <TextView
             android:layout_width="wrap_content"
@@ -26,85 +27,114 @@
             android:textStyle="bold"
             android:textSize="35sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userNameTextField"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="30sp"
-            android:text="@string/user"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-        <EditText
-            android:id="@+id/userNameText"
-            android:layout_width="130sp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="5sp"
-            android:inputType="text"
-            android:textStyle="italic"
-            android:textSize="26sp"
-            android:text="" />
+            android:paddingEnd="8dp"
+            android:paddingTop="20dp"
+            android:hint="@string/user">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userZipCodeTextField"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="30sp"
-            android:text="@string/zipCode"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-        <EditText
-            android:id="@+id/userZipCodeText"
-            android:layout_width="130sp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="5sp"
-            android:inputType="text"
-            android:textStyle="italic"
-            android:textSize="26sp"
-            android:text="" />
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@string/save"
-            android:textSize="35sp"
-            android:layout_gravity="center_horizontal"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/helloUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="30sp"
-            android:text="@string/welcome"
-            android:paddingStart="8sp"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingTop="30sp"
-            android:paddingStart="3sp"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-    </LinearLayout>
+            android:paddingTop="20dp"
+            android:paddingEnd="8dp"
+            android:hint="@string/zipCode">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <!--<TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:paddingTop="30sp"
+           android:text="@string/user"
+           android:textStyle="bold"
+           android:textSize="24sp"/>
+       <EditText
+           android:id="@+id/userNameText"
+           android:layout_width="130sp"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:paddingTop="5sp"
+           android:inputType="text"
+           android:textStyle="italic"
+           android:textSize="26sp"
+           android:text="" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:paddingTop="30sp"
+           android:text="@string/zipCode"
+           android:textStyle="bold"
+           android:textSize="24sp"/>
+       <EditText
+           android:id="@+id/userZipCodeText"
+           android:layout_width="130sp"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:paddingTop="5sp"
+           android:inputType="text"
+           android:textStyle="italic"
+           android:textSize="26sp"
+           android:text="" /> -->
+       <Button
+           android:id="@+id/addButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="36dp"
+           android:text="@string/save"
+           android:textSize="35sp"
+           android:layout_gravity="center_horizontal"/>
+   </LinearLayout>
+   <LinearLayout
+       android:id="@+id/helloUser"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="gone">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:paddingTop="30sp"
+           android:text="@string/welcome"
+           android:paddingStart="8sp"
+           android:textStyle="bold"
+           android:textSize="24sp"/>
+       <TextView
+           android:id="@+id/name"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:paddingTop="30sp"
+           android:paddingStart="3sp"
+           android:textStyle="bold"
+           android:textSize="24sp"/>
+   </LinearLayout>
+
+
+   <com.google.android.material.divider.MaterialDivider
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recyclerView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 
 </LinearLayout>
